@@ -1,4 +1,4 @@
-package org.rcgonzalezf
+package org.rcgonzalezf.onetoten
 
 /**
  * https://projecteuler.net/problem=1
