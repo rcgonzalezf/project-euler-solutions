@@ -36,7 +36,7 @@ class Problem1Test {
     }
 
     private fun thenSolutionShouldBe(expectedSolution: Int) {
-        assertEquals(expectedSolution.toLong(), solution.toLong())
+        assertEquals(expectedSolution.toInt(), solution.toInt())
     }
 
     private fun whenCalculationSolution() {

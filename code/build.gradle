@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+apply plugin: "kotlin"
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    main.java.srcDirs += 'src/main/java'
+}
+
+dependencies {
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:0.14.451'
+
+    testCompile 'junit:junit:4.12'
+}
+
