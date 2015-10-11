@@ -16,10 +16,8 @@ class Problem1 {
     fun solution(): Int {
         var solution = 0
 
-        for (i in 0..baseNumber - 1) {
-            if (i % 3 == 0 || i % 5 == 0) {
-                solution += i
-            }
+        (0..baseNumber - 1).filter { it % 3 == 0 || it % 5 == 0 }.forEach {
+            solution += it
         }
 
         return solution
