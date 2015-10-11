@@ -1,7 +1,6 @@
 package org.rcgonzalezf.onetoten
 
 import java.math.BigInteger
-import kotlin.math.minus
 
 /**
  *
@@ -18,7 +17,7 @@ class Problem2 {
     var maxValue: Int = 4000000
 
     // Looking for this fibonacci value
-    var fibonacci = 10
+    var fibonacci = 32
     var fibonacciValues = hashMapOf<Int, BigInteger>(0 to BigInteger.ONE, 1 to BigInteger.ONE);
 
     fun solution(): BigInteger {
