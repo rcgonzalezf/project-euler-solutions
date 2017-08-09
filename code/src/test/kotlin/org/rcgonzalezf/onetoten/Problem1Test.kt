@@ -12,6 +12,7 @@ import org.rcgonzalezf.onetoten.Problem1
 class Problem1Test {
 
     private var solution: Int = 0
+    private var belowWhat: Int = 0
     private var problem1: Problem1? = null
 
     @Before
@@ -37,14 +38,16 @@ class Problem1Test {
     }
 
     private fun thenSolutionShouldBe(expectedSolution: Int) {
-        assertEquals(expectedSolution.toInt(), solution.toInt())
+        assertEquals(expectedSolution, solution)
     }
 
     private fun whenCalculationSolution() {
-        solution = problem1!!.solution()
+        solution = problem1!!.solve(belowWhat)
     }
 
+
+
     private fun givenBelow(belowWhat: Int) {
-        problem1!!.baseNumber = belowWhat
+        this.belowWhat = belowWhat
     }
 }

@@ -11,15 +11,9 @@ package org.rcgonzalezf.onetoten
  */
 class Problem1 {
 
-    var baseNumber = 10
-
-    fun solution(): Int {
-        var solution = 0
-
-        (0..baseNumber - 1).filter { it % 3 == 0 || it % 5 == 0 }.forEach {
-            solution += it
-        }
-
-        return solution
+    fun solve(baseNumber: Int): Int {
+        return (0..baseNumber - 1)
+                .filter { it % 3 == 0 || it % 5 == 0 }
+                .sum()
     }
 }
