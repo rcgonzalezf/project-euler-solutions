@@ -3,7 +3,8 @@ package org.rcgonzalezf.onetoten
 import org.junit.Before
 import org.junit.Test
 import java.math.BigInteger
-import kotlin.test.assertEquals
+
+import org.junit.Assert.*
 
 class Problem2Test {
 
@@ -55,7 +56,7 @@ class Problem2Test {
     }
 
     private fun thenSolutionShouldBe(expected: Long) {
-        assertEquals(expected, solution.longValue())
+        assertEquals(expected, solution.longValueExact())
     }
 
     private fun whenCalculationSolution() {
