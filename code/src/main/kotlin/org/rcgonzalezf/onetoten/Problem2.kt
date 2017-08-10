@@ -1,5 +1,6 @@
 package org.rcgonzalezf.onetoten
 
+import java.math.BigDecimal
 import java.math.BigInteger
 
 /**
@@ -14,29 +15,20 @@ import java.math.BigInteger
  */
 class Problem2 {
 
-    var maxValue: Int = 4000000
+    val fibonacciValues = hashMapOf<Int, BigInteger>(0 to BigInteger.ONE, 1 to BigInteger.ONE);
 
-    // Looking for this fibonacci value
-    var fibonacci = 32
-    var fibonacciValues = hashMapOf<Int, BigInteger>(0 to BigInteger.ONE, 1 to BigInteger.ONE);
+    fun solve(fibonacci: Int, maxValue: Int = 4000000): BigInteger {
 
-    fun solution(): BigInteger {
-        var solution: BigInteger = BigInteger.ZERO
         calculateFibonacci(fibonacci)
 
-        fibonacciValues.filter {
+        return fibonacciValues.filter {
             it.value < BigInteger.valueOf(maxValue.toLong()) &&
                     it.value.mod(BigInteger.ONE.add(BigInteger.ONE)).equals(BigInteger.ZERO)
-        }.forEach {
-            //println("Key: ${it.key} and ${it.value} and mv $maxValue")
-            solution = solution.add(it.value)
-        }
-
-        return solution
+        }.values.fold(BigInteger.ZERO, BigInteger::add)
     }
 
     private fun calculateFibonacci(n: Int): BigInteger? {
-        if ( fibonacciValues.contains(n)) {
+        if (fibonacciValues.contains(n)) {
             return fibonacciValues.get(n)
         } else {
             val f = calculateFibonacci(n - 2)!!.add(calculateFibonacci(n - 1))

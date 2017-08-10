@@ -10,6 +10,9 @@ class Problem2Test {
 
     private var solution: BigInteger = BigInteger.ZERO
     private var problem2: Problem2? = null
+    private var maxValue: Int = 4000000
+    private var fibonacci: Int = 0
+
 
     @Before
     @Throws(Exception::class)
@@ -52,7 +55,7 @@ class Problem2Test {
     }
 
     private fun givenMaxValue(mV: Int) {
-        problem2!!.maxValue = mV
+        this.maxValue = mV
     }
 
     private fun thenSolutionShouldBe(expected: Long) {
@@ -60,10 +63,11 @@ class Problem2Test {
     }
 
     private fun whenCalculationSolution() {
-        solution = problem2!!.solution()
+        solution = problem2!!.solve(fibonacci, maxValue)
     }
 
+
     private fun givenFibonacciOf(n: Int) {
-        problem2!!.fibonacci = n
+        this.fibonacci = n
     }
 }
