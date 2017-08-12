@@ -1,6 +1,5 @@
 package org.rcgonzalezf.onetoten
 
-import java.math.BigDecimal
 import java.math.BigInteger
 
 /**
@@ -15,27 +14,32 @@ import java.math.BigInteger
  */
 class Problem2 {
 
-    val fibonacciValues = hashMapOf<Int, BigInteger>(0 to BigInteger.ONE, 1 to BigInteger.ONE);
-
     fun solve(fibonacci: Int, maxValue: Int = 4000000): BigInteger {
 
-        calculateFibonacci(fibonacci)
+        // the list is based on index 0, so we add one
+        val fibonacciValues = fibonacci().take(fibonacci + 1).toList()
+        val max = BigInteger.valueOf(maxValue.toLong())
 
-        return fibonacciValues.filter {
-            it.value < BigInteger.valueOf(maxValue.toLong()) &&
-                    it.value.mod(BigInteger.ONE.add(BigInteger.ONE)).equals(BigInteger.ZERO)
-        }.values.fold(BigInteger.ZERO, BigInteger::add)
+        return fibonacciValues
+                .filter { filterCriteria(it.second, max) }
+                .map { it.second }
+                .fold(BigInteger.ZERO, BigInteger::add)
     }
 
-    private fun calculateFibonacci(n: Int): BigInteger? {
-        if (fibonacciValues.contains(n)) {
-            return fibonacciValues.get(n)
-        } else {
-            val f = calculateFibonacci(n - 2)!!.add(calculateFibonacci(n - 1))
+    /**
+     * Make sure that value doesn't exceed the max value and it's an even number.
+     */
+    fun filterCriteria(value: BigInteger, max: BigInteger): Boolean {
+        val two = BigInteger("2")
+        return value.compareTo(max) == -1 && value.mod(two).equals(BigInteger.ZERO)
+    }
 
-            fibonacciValues.put(n, f)
-            return f
-        }
+    // based on https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/generate-sequence.html
+    fun fibonacci(): Sequence<Pair<BigInteger, BigInteger>> {
+        // fibonacci terms
+        // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, ...
+        return generateSequence(Pair(BigInteger.ZERO, BigInteger.ONE),
+                { Pair(it.second, it.first.add(it.second)) })
     }
 
 }
