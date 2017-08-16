@@ -6,7 +6,6 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 import org.junit.Assert.*
-import org.rcgonzalezf.onetoten.Problem1
 
 @RunWith(JUnit4::class)
 class Problem1Test {
@@ -25,7 +24,9 @@ class Problem1Test {
     @Throws(Exception::class)
     fun solutionShouldReturn23ForInput10() {
         givenBelow(10)
-        whenCalculationSolution()
+
+        whenCalculatingTheSolution()
+
         thenSolutionShouldBe(23)
     }
 
@@ -33,7 +34,9 @@ class Problem1Test {
     @Throws(Exception::class)
     fun solutionShouldReturnXXForInput10000() {
         givenBelow(10000)
-        whenCalculationSolution()
+
+        whenCalculatingTheSolution()
+
         thenSolutionShouldBe(23331668)
     }
 
@@ -41,7 +44,7 @@ class Problem1Test {
         assertEquals(expectedSolution, solution)
     }
 
-    private fun whenCalculationSolution() {
+    private fun whenCalculatingTheSolution() {
         solution = problem1!!.solve(belowWhat)
     }
 
