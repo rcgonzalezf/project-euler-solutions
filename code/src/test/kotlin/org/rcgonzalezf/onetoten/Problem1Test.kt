@@ -40,17 +40,15 @@ class Problem1Test {
         thenSolutionShouldBe(23331668)
     }
 
-    private fun thenSolutionShouldBe(expectedSolution: Int) {
-        assertEquals(expectedSolution, solution)
+    private fun givenBelow(belowWhat: Int) {
+        this.belowWhat = belowWhat
     }
 
     private fun whenCalculatingTheSolution() {
         solution = problem1!!.solve(belowWhat)
     }
 
-
-
-    private fun givenBelow(belowWhat: Int) {
-        this.belowWhat = belowWhat
+    private fun thenSolutionShouldBe(expectedSolution: Int) {
+        assertEquals(expectedSolution, solution)
     }
 }

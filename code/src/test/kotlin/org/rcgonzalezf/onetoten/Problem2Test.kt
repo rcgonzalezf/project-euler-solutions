@@ -25,16 +25,20 @@ class Problem2Test {
     fun solutionShouldReturn16ForMaxValue10AndFibonacci10() {
         givenFibonacciOf(10)
         givenMaxValue(10)
-        whenCalculationSolution()
-        thenSolutionShouldBe(10)
+
+        whenCalculatingTheSolution()
+
+        thenTheSolutionShouldBe(10)
     }
 
     @Test
     @Throws(Exception::class)
     fun solutionShouldReturn44WithDefaultMaxValueAndFibonacci10() {
         givenFibonacciOf(10)
-        whenCalculationSolution()
-        thenSolutionShouldBe(44)
+
+        whenCalculatingTheSolution()
+
+        thenTheSolutionShouldBe(44)
     }
 
     @Test
@@ -42,32 +46,35 @@ class Problem2Test {
     fun solutionShouldReturn188WithMaxValue1000AndFibonacci100() {
         givenFibonacciOf(12)
         givenMaxValue(1000)
-        whenCalculationSolution()
-        thenSolutionShouldBe(188)
+
+        whenCalculatingTheSolution()
+
+        thenTheSolutionShouldBe(188)
     }
 
     @Test
     @Throws(Exception::class)
     fun solutionShouldReturn4613732WithDefaultMaxValueAndFibonacci32() {
         givenFibonacciOf(32)
-        whenCalculationSolution()
-        thenSolutionShouldBe(4613732)
+
+        whenCalculatingTheSolution()
+
+        thenTheSolutionShouldBe(4613732)
+    }
+
+    private fun givenFibonacciOf(n: Int) {
+        this.fibonacci = n
     }
 
     private fun givenMaxValue(mV: Int) {
         this.maxValue = mV
     }
 
-    private fun thenSolutionShouldBe(expected: Long) {
-        assertEquals(expected, solution.longValueExact())
-    }
-
-    private fun whenCalculationSolution() {
+    private fun whenCalculatingTheSolution() {
         solution = problem2!!.solve(fibonacci, maxValue)
     }
 
-
-    private fun givenFibonacciOf(n: Int) {
-        this.fibonacci = n
+    private fun thenTheSolutionShouldBe(expected: Long) {
+        assertEquals(expected, solution.longValueExact())
     }
 }
