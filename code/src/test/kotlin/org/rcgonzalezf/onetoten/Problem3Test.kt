@@ -17,7 +17,7 @@ class Problem3Test {
 
     @Test
     fun shouldReturn29For13195() {
-        givenPrimeFactorOf(13185)
+        givenPrimeFactorOf(13195)
 
         whenCalculatingSolution()
 
@@ -41,12 +41,12 @@ class Problem3Test {
 
     //region - when methods
     private fun whenCalculatingSolution() {
-        result = uut.solve(n)
+        result = uut!!.solve(n)
     }
     //endregion
 
     //region - then methods
-    private fun thenTheSolutionShouldBe(expected: Int) {
+    private fun thenTheSolutionShouldBe(expected: Long) {
         assertEquals(expected, result)
     }
     //endregion
