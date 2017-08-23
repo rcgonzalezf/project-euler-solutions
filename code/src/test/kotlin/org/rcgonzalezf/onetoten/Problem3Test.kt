@@ -25,12 +25,12 @@ class Problem3Test {
     }
 
     @Test
-    fun shouldReturnSolutionFor600851475143() {
-        givenPrimeFactorOf(600851475143)
+    fun shouldReturnSolutionFor600851475139() {
+        givenPrimeFactorOf(600851475139)
 
         whenCalculatingSolution()
 
-        thenTheSolutionShouldBe(-1)
+        thenTheSolutionShouldBe(523L)
     }
 
     //region - given methods

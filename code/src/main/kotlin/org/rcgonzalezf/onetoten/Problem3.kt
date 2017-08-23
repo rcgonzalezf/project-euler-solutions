@@ -37,7 +37,8 @@ class Problem3 {
 
     private fun generateSeqOfFactors(n: Long): MutableList<Long> {
         var sequence = mutableListOf<Long>()
-        for (i in 2L until n) { // TODO until sqrt of n
+        val sqrt = Math.sqrt(n.toDouble()).toLong()
+        for (i in 2L until sqrt) { // TODO until sqrt of n
             if (n.rem(i) == 0L) {
                 sequence.add(i)
             }
