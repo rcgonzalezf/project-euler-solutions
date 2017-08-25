@@ -14,12 +14,12 @@ class Problem4 {
     }
 
     private fun getMaxPalindrome(limit: Pair<Int, Int>): Int {
-        for (i in limit.second downTo limit.first) {
-            ((i - 1) downTo limit.first)
-                    .map { i * it }
-                    .filter { isPalindrome(it.toString()) }
-                    .forEach { return it }
-        }
+        (limit.second downTo limit.first)
+                .map { i -> ((i - 1) downTo limit.first)
+                            .map { i * it }
+                            .filter { isPalindrome(it.toString()) }
+                            .forEach { return it }
+                }
         return -1
     }
 
