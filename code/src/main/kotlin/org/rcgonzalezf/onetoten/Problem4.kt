@@ -8,10 +8,22 @@ package org.rcgonzalezf.onetoten
  */
 class Problem4 {
 
+    // BruteForce n=2 11*11= 121 => true
+    // we can add all the palindrome
+    // we can get the max
     fun solve(digit: Int): Int {
         val limit = getLimits(digit)
+        val palindromeNumbers = mutableListOf<Int>()
 
-        return digit
+        for (i in limit.first..limit.second) {
+            for (j in (limit.first + 1)..limit.second) {
+                val product = i * j
+                if (isPalindrome(product.toString())) {
+                    palindromeNumbers.add(product)
+                }
+            }
+        }
+        return palindromeNumbers.max() ?: -1
     }
 
     fun getLimits(digits: Int): Pair<Int, Int> {
@@ -22,7 +34,7 @@ class Problem4 {
         return p
     }
 
-    fun isPalindrome(number:String) : Boolean {
+    fun isPalindrome(number: String): Boolean {
         val lowerCaseNumber = number.toLowerCase()
         return lowerCaseNumber.contentEquals(lowerCaseNumber.reversed())
     }

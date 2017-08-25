@@ -30,12 +30,12 @@ class Problem4Test {
     }
 
     @Test
-    fun shouldReturnXXXFor3DigitsLargestPalindrome() {
-        givenThreeDigits()
+    fun shouldReturn99000099For4DigitsLargestPalindrome() {
+        givenFourDigits()
 
         whenCalculationSolution()
 
-        thenLargestPalindromeShouldBe(-1)
+        thenLargestPalindromeShouldBe(99000099)
     }
 
     @Test
@@ -61,8 +61,8 @@ class Problem4Test {
         digits = 2
     }
 
-    private fun givenThreeDigits() {
-        digits = 3
+    private fun givenFourDigits() {
+        digits = 4
     }
 
     private fun givenNumber(number: Int) {
