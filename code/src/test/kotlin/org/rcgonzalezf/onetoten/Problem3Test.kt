@@ -6,7 +6,7 @@ import org.junit.Assert.*
 
 class Problem3Test {
 
-    private var uut: Problem3? = null
+    private var uut: Problem3 ?= null
     private var n: Long = 0
     private var result: Long = 0
 
