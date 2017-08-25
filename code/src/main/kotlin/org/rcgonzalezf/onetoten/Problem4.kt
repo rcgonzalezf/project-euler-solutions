@@ -13,20 +13,23 @@ class Problem4 {
     // we can get the max
     fun solve(digit: Int): Int {
         val limit = getLimits(digit)
-        val palindromeNumbers = mutableListOf<Int>()
 
-        for (i in limit.first..limit.second) {
-            for (j in (limit.first + 1)..limit.second) {
+        return getMaxPalindrome(limit)
+    }
+
+    private fun getMaxPalindrome(limit: Pair<Int, Int>): Int {
+        for (i in limit.second downTo limit.first) {
+            for (j in (limit.second - 1) downTo limit.first) {
                 val product = i * j
                 if (isPalindrome(product.toString())) {
-                    palindromeNumbers.add(product)
+                    return product
                 }
             }
         }
-        return palindromeNumbers.max() ?: -1
+        return -1
     }
 
-    fun getLimits(digits: Int): Pair<Int, Int> {
+    private fun getLimits(digits: Int): Pair<Int, Int> {
         val p = Pair(
                 Math.pow(10.0, digits - 1.0).toInt(),
                 (Math.pow(10.0, digits.toDouble()) - 1).toInt()
