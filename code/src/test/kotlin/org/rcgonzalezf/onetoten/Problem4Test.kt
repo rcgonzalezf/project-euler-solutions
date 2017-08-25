@@ -12,6 +12,8 @@ class Problem4Test {
     private var uut: Problem4? = null
     private var digits: Int = 0
     private var largestPalindrome: Int = 0
+    private var number: Int = 0
+    private var isPalindrome: Boolean = false
 
     @Before
     fun setupInstance() {
@@ -36,6 +38,24 @@ class Problem4Test {
         thenLargestPalindromeShouldBe(-1)
     }
 
+    @Test
+    fun shouldReturnTrueFor1001WhenIsPalindrome() {
+        givenNumber(1001)
+
+        whenCheckingPalindrome()
+
+        thenShouldBePalindrome(true)
+    }
+
+    @Test
+    fun shouldReturnFalseFor901WhenIsPalindrome() {
+        givenNumber(901)
+
+        whenCheckingPalindrome()
+
+        thenShouldBePalindrome(false)
+    }
+
     //region given methods
     private fun givenTwoDigits() {
         digits = 2
@@ -44,17 +64,30 @@ class Problem4Test {
     private fun givenThreeDigits() {
         digits = 3
     }
+
+    private fun givenNumber(number: Int) {
+       this.number = number
+    }
     //endregion given methods
 
     //region when methods
     private fun whenCalculationSolution() {
         largestPalindrome = uut!!.solve(digits)
     }
+
+    private fun whenCheckingPalindrome() {
+        isPalindrome = uut!!.isPalindrome(number.toString())
+    }
+
     //endregion when methods
 
     //region then methods
     private fun thenLargestPalindromeShouldBe(expectedLargest: Int) {
         assertEquals(expectedLargest, largestPalindrome)
+    }
+
+    private fun thenShouldBePalindrome(expected: Boolean) {
+        assertEquals(expected, isPalindrome)
     }
     //endregion then methods
 }
